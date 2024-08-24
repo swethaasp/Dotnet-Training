@@ -1,0 +1,38 @@
+using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+namespace Basics
+{
+    class Program1
+    {
+        static void Main(string[] args)
+        {
+
+            int a=10;
+        
+
+            a += 5;
+            Console.WriteLine($"a+=5 : {a}");
+
+            a -= 5;
+            Console.WriteLine($"a-=5 : {a}");
+
+            a *= 5;
+            Console.WriteLine($"a*=5 : {a}");
+
+            a /= 5;
+            Console.WriteLine($"a*=5 : {a}");
+        }
+    }
+
+a+=5 : 15
+a-=5 : 10
+a*=5 : 50
+a*=5 : 10
+
+C:\Users\SWETHAA\source\repos\Solution\Basics\bin\Debug\net8.0\Basics.exe (process 29648) exited with code 0 (0x0).
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .
