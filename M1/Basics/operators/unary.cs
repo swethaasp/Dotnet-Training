@@ -29,6 +29,10 @@ namespace Basics
     }
 }
 
+In C#, the $ symbol is used to denote an interpolated string.
+Interpolated strings allow you to embed expressions inside string literals,
+which makes it easy to include variable values or expressions directly within a string.
+
 Output
 
 Prefix ++ ,a=11 ,b=11
