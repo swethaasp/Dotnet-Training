@@ -1,0 +1,47 @@
+using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+namespace Basics
+{
+    class Program1
+    {
+        static void Main(string[] args)
+        {
+            bool a = false;
+            bool b = true;
+
+            Console.WriteLine($"a b :{a} {b}");
+            Console.WriteLine($"a && b : {a && b}");
+            Console.WriteLine($"a || b : {a || b}");
+
+            bool c = true;
+            bool d = true;
+
+            Console.WriteLine($"c d :{c} {d}");
+            Console.WriteLine($"c && d : {c && d}");
+            Console.WriteLine($"c || d : {c || d}");
+
+            bool e = false;
+            bool f = true;
+
+            Console.WriteLine($"e f :{e} {f}");
+            Console.WriteLine($"e && f: {e && f}");
+            Console.WriteLine($"e || f : {e || f}");
+
+        }
+    }
+}
+
+a b :False True
+a && b : False
+a || b : True
+c d :True True
+c && d : True
+c || d : True
+e f :False True
+e && f: False
+e || f : True
+
