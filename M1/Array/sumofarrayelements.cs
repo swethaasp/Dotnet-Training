@@ -1,5 +1,5 @@
-Array- Reference type variable 
-index also known as subscript
+// Array- Reference type variable 
+// index also known as subscript
 
 using System;
 using System.Collections.Generic;
