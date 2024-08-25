@@ -1,7 +1,7 @@
 //variable type loop- dont know no.of iterations -dont till which no i need to check
 
 
-
+//find first  10 prime numbers
             int cnt = 0; //count the 10 numbers
             int num = 1;
             
