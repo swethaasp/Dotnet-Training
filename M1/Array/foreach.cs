@@ -23,3 +23,18 @@ namespace Basics
         }
     }
 }
+
+
+
+//alt
+
+            int[] num = { 4, 3, 2, 1, -1, -2, 9, 5 };
+            Console.WriteLine("The contents of array");
+            foreach(int K in num)
+            {
+                //Console.Write("{0}\t",K);
+                Console.Write($" {K}\t");
+            }
+        }
+    }
+}
