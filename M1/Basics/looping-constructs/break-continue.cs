@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+ //break- come out of the for loop . no more execution in loop
+ //continue - continue to the next iteration. skip current iteration
+
 namespace Basics
 {
     class Loops
@@ -35,3 +39,12 @@ namespace Basics
    
 
 }
+
+
+//When the break statement is encountered in a loop, it immediately exits the loop, 
+regardless of the loop's condition or remaining iterations.
+
+
+    //When the continue statement is encountered in a loop (like for, while, or do-while),
+    it skips the remaining code in the current iteration and
+    immediately moves to the next iteration of the loop.
