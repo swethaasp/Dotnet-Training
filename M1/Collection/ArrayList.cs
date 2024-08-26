@@ -78,3 +78,34 @@ namespace Basics
         }
     }
 }
+
+
+Original ArrayList:
+23
+Education
+34.89
+F
+Csharp
+
+After removing 34.89:
+23
+Education
+F
+Csharp
+
+After removing element at index 2:
+23
+Education
+Csharp
+
+After inserting 'NewElement' at index 1:
+23
+NewElement
+Education
+Csharp
+
+After reversing the ArrayList:
+Csharp
+Education
+NewElement
+23
