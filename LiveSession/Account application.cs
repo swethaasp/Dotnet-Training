@@ -10,7 +10,7 @@ namespace AccountsDemoApp
         static void Main(string[] args)
         {
             int ch;
-            Account a = null;
+            Account a = null;  //a hold the account object.
 
             do
             {
@@ -73,7 +73,7 @@ namespace AccountsDemoApp
                         break;
 
                     case 0:
-                        break;
+                        break;  //come out of the do loop
 
                     default:
                         Console.WriteLine("*********** Wrong Choice ***********\n");
@@ -99,7 +99,7 @@ namespace AccountsDemoApp
 {
     public class Account
     {
-        public int Id { get; private set; }
+        public int Id { get; private set; }  //The private keyword before set means that the property can only be modified (set) from within the class itself
 
         private string _name;
 
