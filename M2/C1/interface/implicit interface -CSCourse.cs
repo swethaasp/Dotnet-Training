@@ -7,7 +7,7 @@ namespace CMS.UI.Models
         public int TotalDurationInDays { get; set; }
         public List<CourseSubject> Subjects => throw new System.NotImplementedException();
 
-        public void AddSubject(CourseSubject subject)
+        public void AddSubject(CourseSubject subject)   //public methods
         {
             throw new System.NotImplementedException();
         }
