@@ -13,7 +13,6 @@ Solution
 
 
 using System;
-using System.Collections.Generic;
 
 // Base class for Currency
 public abstract class Currency
@@ -53,8 +52,8 @@ public class Pound : Currency
 
     public override double ConvertToRupees()
     {
-        double dollars = NumberOfNotes + NumberOfCoins * 0.01;
-        return dollars * PoundToDollarRate * DollarToRupeesRate;
+        double dollars = (NumberOfNotes + NumberOfCoins * 0.01) * PoundToDollarRate;
+        return dollars * DollarToRupeesRate;
     }
 }
 
@@ -72,43 +71,48 @@ public class Rupee : Currency
 // CollectionBox class
 public class CollectionBox
 {
-    private List<Currency> currencies = new List<Currency>();
+    private double totalRupees = 0;
 
     public void AddCurrency(Currency currency)
     {
-        currencies.Add(currency);
+        totalRupees += currency.ConvertToRupees();
     }
 
     public void DisplayTotalInRupees()
     {
-        double totalAmount = 0;
-        foreach (var currency in currencies)
-        {
-            totalAmount += currency.ConvertToRupees();
-        }
-        Console.WriteLine($"Total amount in Rupees: {totalAmount}");
+        Console.WriteLine($"Total amount in Rupees: {totalRupees}");
     }
 }
 
-// Example usage
+// Program class
 public class Program
 {
     public static void Main(string[] args)
     {
-        // Create some currencies
-        Dollar dollar = new Dollar(10, 50); // 10 dollars and 50 cents
-        Pound pound = new Pound(5, 25); // 5 pounds and 25 pence
-        Rupee rupee = new Rupee(100, 75); // 100 rupees and 75 paise
-
-        // Create a collection box
         CollectionBox box = new CollectionBox();
 
-        // Add currencies to the collection box
+        // Input Dollar currency
+        Console.WriteLine("Enter number of dollars and cents:");
+        int dollarNotes = int.Parse(Console.ReadLine());
+        int dollarCoins = int.Parse(Console.ReadLine());
+        Dollar dollar = new Dollar(dollarNotes, dollarCoins);
         box.AddCurrency(dollar);
+
+        // Input Pound currency
+        Console.WriteLine("Enter number of pounds and pence:");
+        int poundNotes = int.Parse(Console.ReadLine());
+        int poundCoins = int.Parse(Console.ReadLine());
+        Pound pound = new Pound(poundNotes, poundCoins);
         box.AddCurrency(pound);
+
+        // Input Rupee currency
+        Console.WriteLine("Enter number of rupees and paise:");
+        int rupeeNotes = int.Parse(Console.ReadLine());
+        int rupeeCoins = int.Parse(Console.ReadLine());
+        Rupee rupee = new Rupee(rupeeNotes, rupeeCoins);
         box.AddCurrency(rupee);
 
-        // Display total amount in Rupees
+        // Display total amount
         box.DisplayTotalInRupees();
     }
 }
