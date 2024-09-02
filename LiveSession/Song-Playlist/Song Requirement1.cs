@@ -89,6 +89,8 @@ namespace D6_Song_Playlist
     {
         static void Main()
         {
+            //Requirement 1
+            Console.WriteLine("Requiremnet 1");
             Console.WriteLine("Enter song 1 detail:");
             string[] song1Details = Console.ReadLine().Split(',');
 
@@ -112,6 +114,64 @@ namespace D6_Song_Playlist
             {
                 Console.WriteLine("Song 1 and Song 2 are different");
             }
+
+
+
+            //Requirement 2
+            Console.WriteLine("Requiremnet 2");
+
+            Console.WriteLine("Enter the Play list name:");
+            string playlistName = Console.ReadLine();
+            PlayList myPlaylist = new PlayList(playlistName);
+
+            while (true)
+            {
+                Console.WriteLine("1.Add Song");
+                Console.WriteLine("2.Remove Song");
+                Console.WriteLine("3.Display");
+                Console.WriteLine("4.Exit");
+                Console.Write("Enter your choice: ");
+                int choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.Write("Enter the number of Songs: ");
+                        int numberOfSongs = int.Parse(Console.ReadLine());
+
+                        for (int i = 0; i < numberOfSongs; i++)
+                        {
+                            Console.WriteLine($"Enter song {i + 1} detail:");
+                            string[] songDetails = Console.ReadLine().Split(',');
+                            Song song = new Song(songDetails[0].Trim(), songDetails[1].Trim(), songDetails[2].Trim(), double.Parse(songDetails[3]), int.Parse(songDetails[4]), DateTime.ParseExact(songDetails[5].Trim(), "dd-MM-yyyy", null));
+                            myPlaylist.AddSongToPlaylist(song);
+                        }
+                        break;
+                    case 2:
+                        Console.Write("Enter the name of the song to be deleted: ");
+                        string songName = Console.ReadLine();
+                        if (myPlaylist.RemoveSongFromPlaylist(songName))
+                        {
+                            Console.WriteLine("Song successfully deleted");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Song not found in the Play List");
+                        }
+                        break;
+                    case 3:
+                        myPlaylist.DisplaySongs();
+                        break;
+                    case 4:
+                        return;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+            }
+
+
+            //Requirement 3
         }
     }
 
