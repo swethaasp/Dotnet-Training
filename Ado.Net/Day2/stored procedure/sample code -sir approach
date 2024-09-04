@@ -1,0 +1,26 @@
+ public static void ShowSalarySP()
+        {
+            SqlConnection con = new SqlConnection(Helper.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "GetSalary";
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter parId, parSalary;
+            parId = new SqlParameter("@Id", SqlDbType.Int);
+            parSalary = new SqlParameter("@Sal", SqlDbType.Money);
+            parSalary.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(parId);
+            cmd.Parameters.Add(parSalary);
+            Console.Write("Enter Emp Id:");
+            parId.Value = int.Parse(Console.ReadLine());
+
+            con.Open(); cmd.ExecuteNonQuery(); con.Close();
+
+            string result = string.Empty;
+            if (parSalary.Value == DBNull.Value)
+                result= "No Data Found";
+            else
+                result= parSalary.Value.ToString();
+
+            Console.WriteLine("Salary:" + result);
+        }
