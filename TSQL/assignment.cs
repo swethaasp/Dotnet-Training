@@ -1,4 +1,4 @@
-/*Q1. Write CREATE TABLE commands for the following table descriptions:*/
+/Q1. Write CREATE TABLE commands for the following table descriptions:/
 CREATE TABLE CLIENT_MASTER (
     CLIENTNO VARCHAR(6) PRIMARY KEY CHECK (CLIENTNO LIKE 'C%'),
     NAME VARCHAR(20) NOT NULL,
@@ -75,13 +75,13 @@ VALUES ('O19001', 'P00001', 4, 4, 525);
 
 /*Answer following queries with the help of above schema : */
 
-/*1. Display the names of all the clients.*/
+/1. Display the names of all the clients./
 SELECT NAME FROM CLIENT_MASTER;
 
-/*2. Display all the clients who are located in Mumbai.*/
+/2. Display all the clients who are located in Mumbai./
 SELECT * FROM CLIENT_MASTER WHERE CITY = 'Mumbai';
 
-/*3. Display all the products whose selling price is > 2000 and < 5000.*/
+/3. Display all the products whose selling price is > 2000 and < 5000./
 INSERT INTO PRODUCT_MASTER (PRODUCTNO, DESCRIPTION, PROFITPERC, UNITMEASURE, QTYONHAND, REORDERLVL, SELLPRICE, COSTPRICE)
 VALUES ('P00002', 'Jeans', 10, 'Piece', 150, 30, 2500, 2000);
 
@@ -99,7 +99,7 @@ VALUES ('P00006', 'Blazers', 20, 'Piece', 80, 15, 4800, 4000);
 
 SELECT * FROM PRODUCT_MASTER WHERE SELLPRICE > 2000 AND SELLPRICE < 5000;
 
-/*4. Display Name, City and State of Clients not in the state of Maharashtra.*/
+/4. Display Name, City and State of Clients not in the state of Maharashtra./
 INSERT INTO CLIENT_MASTER (CLIENTNO, NAME, ADDRESS1, ADDRESS2, CITY, PINCODE, STATE, BALDUE)
 VALUES ('C00002', 'John Doe', '123 Street', 'Block A', 'Chennai', 600001, 'Tamil Nadu', 5000);
 
@@ -112,10 +112,10 @@ VALUES ('C00004', 'Michael Johnson', '789 Boulevard', 'Block C', 'Kolkata', 7000
 SELECT NAME, CITY, STATE FROM CLIENT_MASTER WHERE STATE != 'Maharashtra';
 SELECT NAME, CITY, STATE FROM CLIENT_MASTER WHERE STATE <> 'Maharashtra';
 
-/*5. Display all the information of client no C0001 and C0002.*/
+/5. Display all the information of client no C0001 and C0002./
 SELECT * FROM CLIENT_MASTER WHERE CLIENTNO IN ('C00001', 'C00002');
 
-/*6. Change the selling price of '1.44 drive' to Rs. 1150.50.*/
+/6. Change the selling price of '1.44 drive' to Rs. 1150.50./
 
 INSERT INTO PRODUCT_MASTER (PRODUCTNO, DESCRIPTION, PROFITPERC, UNITMEASURE, QTYONHAND, REORDERLVL, SELLPRICE, COSTPRICE) 
 VALUES ('P00007', '1.44 drive', 10.00, 'Piece', 150, 30, 1000.00, 900.00);
@@ -135,28 +135,28 @@ INSERT INTO CLIENT_MASTER (CLIENTNO, NAME, ADDRESS1, ADDRESS2, CITY, PINCODE, ST
 VALUES ('C00005', 'Janani', '45 anna nagar', 'Block B','Bangalore', 560002, 'Karnataka', 8000);
 DELETE FROM CLIENT_MASTER WHERE CLIENTNO = 'C00005';
 
-/*8. Display the clients who stay in a city whose second letter is 'a'*/
+/8. Display the clients who stay in a city whose second letter is 'a'/
 SELECT * FROM CLIENT_MASTER WHERE CITY LIKE '_a%';
 
-/*9. Count the number of products having price greater than or equal to 1500.*/
+/9. Count the number of products having price greater than or equal to 1500./
 SELECT * FROM PRODUCT_MASTER;
 SELECT COUNT(*) FROM PRODUCT_MASTER WHERE SELLPRICE >= 1500;
 SELECT COUNT(*) FROM PRODUCT_MASTER WHERE COSTPRICE >= 1500;
 
-/*10. Display qtyordered, qtydisp and balancedqty (not in table).*/
+/10. Display qtyordered, qtydisp and balancedqty (not in table)./
 SELECT * FROM SALES_ORDER_DETAILS;
 SELECT QTYORDERED, QTYDISP, (QTYORDERED - QTYDISP) AS BALANCEDQTY FROM SALES_ORDER_DETAILS;
 
-/*Write Commands to do following*/
-/*1. Make ClientNo as Primary Key in Client Master.*/
+/Write Commands to do following/
+/1. Make ClientNo as Primary Key in Client Master./
 SELECT * FROM CLIENT_MASTER;
 ALTER TABLE CLIENT_MASTER ADD PRIMARY KEY (CLIENTNO);
 
-/*2. Add a new column phone no in the client master table.*/
+/2. Add a new column phone no in the client master table./
 ALTER TABLE CLIENT_MASTER ADD PHONENO VARCHAR(15);
 SELECT * FROM CLIENT_MASTER;
 
-/*3. Add the not null constraint in the product master table with the column description, profit percent, sell price, and cost price.*/
+/3. Add the not null constraint in the product master table with the column description, profit percent, sell price, and cost price./
 SELECT * FROM PRODUCT_MASTER;
 ALTER TABLE PRODUCT_MASTER ALTER COLUMN DESCRIPTION VARCHAR(15) NOT NULL;
 ALTER TABLE PRODUCT_MASTER ALTER COLUMN PROFITPERC NUMERIC(4,2) NOT NULL;
@@ -166,11 +166,11 @@ ALTER TABLE PRODUCT_MASTER ALTER COLUMN COSTPRICE NUMERIC(8,2) NOT NULL ;
 /* 4. Change size of the name column to 60 in the client master table.*/
 ALTER TABLE CLIENT_MASTER ALTER COLUMN  NAME VARCHAR(60);
 
-/*5. Remove the pincode column from the table.*/
+/5. Remove the pincode column from the table./
 SELECT * FROM CLIENT_MASTER;
 ALTER TABLE CLIENT_MASTER DROP COLUMN PINCODE;
 
-/*Define in 1 or 2 lines and give one example also*/
+/Define in 1 or 2 lines and give one example also/
 /* 1. Recursive Relationship*/
 CREATE TABLE EMPLOYEE (
     EMPLOYEE_ID VARCHAR(6) PRIMARY KEY,
@@ -188,7 +188,7 @@ SELECT E1.NAME AS EMPLOYEE, E2.NAME AS MANAGER
 FROM EMPLOYEE E1
 LEFT JOIN EMPLOYEE E2 ON E1.MANAGER_ID = E2.EMPLOYEE_ID;
 
-/*2. Composite Key Example*/
+/2. Composite Key Example/
 INSERT INTO SALES_ORDER (ORDERNO, ORDERDATE, CLIENTNO, DELYTYPE, BILLEDYN, SALESMANNO, DELYDATE, ORDERSTATUS) 
 VALUES ('O19003', '15-JUN-02', 'C00001', 'P', 'Y', 'S00001', '25-JUL-02', 'Fulfilled');
 
@@ -202,19 +202,19 @@ SELECT * FROM SALES_ORDER;
 SELECT * FROM SALES_ORDER_DETAILS
 SELECT * FROM SALES_ORDER_DETAILS WHERE ORDERNO = 'O19002' AND PRODUCTNO = 'P00002';
 
-/*3.LIKE Operator with Pattern Matching*/
+/3.LIKE Operator with Pattern Matching/
 SELECT * FROM CLIENT_MASTER WHERE CITY LIKE 'M%';
 
-/*4.DROP TABLE Command*/
+/4.DROP TABLE Command/
 DROP TABLE EMPLOYEE;
 
-/*5. Full Outer Join*/
+/5. Full Outer Join/
 SELECT * 
 FROM CLIENT_MASTER 
 FULL OUTER JOIN SALES_ORDER ON CLIENT_MASTER.CLIENTNO = SALES_ORDER.CLIENTNO;
 
-/*Queries with Joins*/
-/*1. Find out the products, which have been sold to 'Ivan Bayross'.*/
+/Queries with Joins/
+/1. Find out the products, which have been sold to 'Ivan Bayross'./
 SELECT P.PRODUCTNO, P.DESCRIPTION
 FROM PRODUCT_MASTER P
 JOIN SALES_ORDER_DETAILS SOD ON P.PRODUCTNO = SOD.PRODUCTNO
@@ -222,7 +222,7 @@ JOIN SALES_ORDER SO ON SOD.ORDERNO = SO.ORDERNO
 JOIN CLIENT_MASTER CM ON SO.CLIENTNO = CM.CLIENTNO
 WHERE CM.NAME = 'Ivan Bayross';
 
-/*2. Finding out the products and their quantities that will have to be delivered in the current month.*/
+/2. Finding out the products and their quantities that will have to be delivered in the current month./
 SELECT * FROM PRODUCT_MASTER;
 SELECT * FROM SALES_ORDER;
 SELECT * FROM SALES_ORDER_DETAILS;
@@ -243,7 +243,7 @@ JOIN SALES_ORDER SO ON SOD.ORDERNO = SO.ORDERNO
 WHERE MONTH(SO.DELYDATE) = MONTH(GETDATE())
 AND YEAR(SO.DELYDATE) = YEAR(GETDATE());
 
-/*3. Listing the ProductNo and description of constantly sold (i.e., rapidly moving) products.*/
+/3. Listing the ProductNo and description of constantly sold (i.e., rapidly moving) products./
 SELECT PRODUCTNO, DESCRIPTION
 FROM PRODUCT_MASTER
 WHERE PRODUCTNO IN (
@@ -253,7 +253,7 @@ WHERE PRODUCTNO IN (
     HAVING COUNT(*) > 1
 );
 
-/*4. Finding the names of clients who have purchased 'Trousers'.*/
+/4. Finding the names of clients who have purchased 'Trousers'./
 SELECT * FROM CLIENT_MASTER;
 SELECT * FROM PRODUCT_MASTER;
 SELECT * FROM SALES_ORDER;
@@ -281,7 +281,7 @@ JOIN SALES_ORDER_DETAILS SOD ON SO.ORDERNO = SOD.ORDERNO
 JOIN PRODUCT_MASTER PM ON SOD.PRODUCTNO = PM.PRODUCTNO
 WHERE PM.DESCRIPTION = 'Trousers';
 
-/*5. Listing the products and orders from customers who have ordered less than 5 units of 'Pull Overs'.*/
+/5. Listing the products and orders from customers who have ordered less than 5 units of 'Pull Overs'./
 
 SELECT * FROM PRODUCT_MASTER WHERE DESCRIPTION = 'Pull Overs';
 INSERT INTO PRODUCT_MASTER (PRODUCTNO, DESCRIPTION, PROFITPERC, UNITMEASURE, QTYONHAND, REORDERLVL, SELLPRICE, COSTPRICE)
@@ -308,21 +308,21 @@ JOIN SALES_ORDER_DETAILS SOD ON SO.ORDERNO = SOD.ORDERNO
 JOIN PRODUCT_MASTER PM ON SOD.PRODUCTNO = PM.PRODUCTNO
 WHERE PM.DESCRIPTION = 'Pull Overs' AND SOD.QTYORDERED < 5;
 
-/*subqueries*/
-/*1. Finding the non-moving products (i.e., products not being sold).*/
+/subqueries/
+/1. Finding the non-moving products (i.e., products not being sold)./
 SELECT PM.PRODUCTNO, PM.DESCRIPTION
 FROM PRODUCT_MASTER PM
 LEFT JOIN SALES_ORDER_DETAILS SOD ON PM.PRODUCTNO = SOD.PRODUCTNO
 WHERE SOD.PRODUCTNO IS NULL;
 
-/*2. Finding the name and complete address for the customer who has placed Order number 'O19001'.*/
+/2. Finding the name and complete address for the customer who has placed Order number 'O19001'./
 
 SELECT CM.NAME, CM.ADDRESS1, CM.ADDRESS2, CM.CITY, CM.STATE
 FROM CLIENT_MASTER CM
 JOIN SALES_ORDER SO ON CM.CLIENTNO = SO.CLIENTNO
 WHERE SO.ORDERNO = 'O19001';
 
-/*3. Finding the clients who have placed orders before the month of May'02*/
+/3. Finding the clients who have placed orders before the month of May'02/
 -- Inserting sample data with orders before May 2002
 
 SELECT * FROM SALES_ORDER;
@@ -346,10 +346,10 @@ JOIN SALES_ORDER SO ON CM.CLIENTNO = SO.CLIENTNO
 WHERE SO.ORDERDATE < '2002-05-01';
 
 
-/*1. Display System Date as Saturday, February 11, 2012*/
+/1. Display System Date as Saturday, February 11, 2012/
 SELECT FORMAT(GETDATE(), 'dddd, MMMM dd, yyyy') AS FormattedDate;
 
-/*2. Display Balance Due with a Specific Format*/
+/2. Display Balance Due with a Specific Format/
 
 DECLARE @BalanceDue DECIMAL(10, 2) = 99999.99;
 SELECT FORMAT(@BalanceDue, 'C', 'en-US') AS FormattedBalanceDue;
@@ -363,7 +363,7 @@ SELECT CONCAT('Salesman ', @SalesmanName, ' sold goods of ', @GoodsSold, ' while
 DECLARE @BirthDate DATE = '2002-08-23';
 SELECT DATEDIFF(YEAR, @BirthDate, GETDATE()) AS AgeInYears;
 
-/*PL/SQL*/
+/PL/SQL/
 /*1. PL/SQL Block to Check if a Number is Even or Odd */
 
 DECLARE @Number INT = 7; -- You can change this number to test different cases
@@ -373,7 +373,7 @@ IF @Number % 2 = 0
 ELSE
     PRINT 'The number is odd.';
 
-/*2. PL/SQL Block to Check if a Person Can Vote*/
+/2. PL/SQL Block to Check if a Person Can Vote/
 
 IF OBJECT_ID('CheckVotingEligibility', 'P') IS NOT NULL
     DROP PROCEDURE CheckVotingEligibility;
@@ -393,7 +393,7 @@ GO
 -- Call the stored procedure 
 EXEC CheckVotingEligibility @Age = 20;
 
-/*3. Create a Trigger for After Insert or Update*/
+/3. Create a Trigger for After Insert or Update/
 -- Drop the trigger if it already exists
 IF OBJECT_ID('trg_UpdateOrderStatus', 'TR') IS NOT NULL
     DROP TRIGGER trg_UpdateOrderStatus;
@@ -420,27 +420,3 @@ BEGIN
     INNER JOIN inserted ON so.ORDERNO = inserted.ORDERNO;
 END;
 GO
-
-
-
-                                   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
