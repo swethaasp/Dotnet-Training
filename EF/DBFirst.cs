@@ -1,3 +1,5 @@
+https://dotnettutorials.net/lesson/entity-framework-database-first-approach/#google_vignette
+
 -- Create the EF_Demo_DB database.
 CREATE DATABASE EF_Demo_DB;
 GO
