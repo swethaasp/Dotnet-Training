@@ -26,6 +26,28 @@ Constraints:
 
 
 
+ //brute force
+   public class Solution {
+    public int MaxSubArray(int[] nums) {
+    
+        
+        int max=int.MinValue;
+       for(int i=0;i<nums.Length;i++){
+            for(int j=i;j<nums.Length;j++){
+             int sum=0;
+             for(int k=i;k<=j;k++){
+               sum=sum+nums[j];
+            }
+            if(sum>max){
+              max=sum; 
+           }
+       }
+    }
+      return max;
+    }
+}
+
+//better 
   public class Solution {
     public int MaxSubArray(int[] nums) {
     
@@ -43,3 +65,28 @@ Constraints:
         return max;
     }
 }
+
+
+//best  -omit if sum is less than 0
+public class Solution {
+    public int MaxSubArray(int[] nums) {
+    
+        
+        int max=int.MinValue;
+        int sum=0;
+       for(int i=0;i<nums.Length;i++){
+          sum=sum+nums[i];
+            if(sum>max){
+               max=sum;
+           }
+           
+           if(sum<0){
+               sum=0;
+           }
+           
+          
+       }
+        return max;
+    }
+}
+
