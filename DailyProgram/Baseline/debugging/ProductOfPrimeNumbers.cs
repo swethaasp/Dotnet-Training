@@ -10,6 +10,7 @@ public class Solution
         {
             return false;  // 0 and 1 are not prime numbers
         }
+        // for (int i = 2; i < num; i++)   //for num=7(checking i from 2 to 6)
         for (int i = 2; i * i <= num; i++)
         {
             if (num % i == 0)
