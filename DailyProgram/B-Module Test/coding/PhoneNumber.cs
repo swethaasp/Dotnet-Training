@@ -1,5 +1,5 @@
 using System;
-
+using System.Linq;
 class Solution
 {
     // Function to extract the last 10 digits from the given string
