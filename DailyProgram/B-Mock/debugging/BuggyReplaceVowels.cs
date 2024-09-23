@@ -17,11 +17,11 @@ class Solution
                     !(char.ToLower(s[i + 1]) == 'a' || char.ToLower(s[i + 1]) == 'e' || char.ToLower(s[i + 1]) == 'i' || 
                       char.ToLower(s[i + 1]) == 'o' || char.ToLower(s[i + 1]) == 'u'))
                 {
-                    result[i]= '5'; 
+                    result[i]= '5';   //3==> 5
                 }
                 else
                 {
-                    result[i]='3';
+                    result[i]='3';  //5==>3
                 }
             }
             else
