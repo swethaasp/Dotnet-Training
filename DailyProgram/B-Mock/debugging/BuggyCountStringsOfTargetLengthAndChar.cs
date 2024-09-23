@@ -12,7 +12,7 @@ class Solution
         for (int i = 0; i < n; i++)
         {
             // Check if the string has the specified length and contains the target character
-            if (arr[i].Length == length && arr[i][0]==targetChar)
+            if (arr[i].Length == length && arr[i][0]==targetChar)    //arr[i][1] ==> arr[i][0]
             {
                 count++;  // Increment the count if the condition is met
             }
