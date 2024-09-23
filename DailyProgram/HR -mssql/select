@@ -5,5 +5,18 @@ select name from  students where marks>75  order by right(name,3) ,id
 Query the difference between the maximum and minimum populations in CITY.
 select max(population)-min(population) from city
 
+SELECT 
+    CASE 
+        WHEN A + B <= C OR A + C <= B OR B + C <= A THEN 'Not A Triangle'
+        WHEN A = B AND B = C THEN 'Equilateral'
+        WHEN A = B OR A = C OR B = C THEN 'Isosceles'
+        ELSE 'Scalene'
+    END AS TriangleType
+FROM TRIANGLES;
+
+
+
+
+
 
 
