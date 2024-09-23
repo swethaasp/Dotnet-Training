@@ -1,4 +1,3 @@
-
 using System;
 
 class Solution
@@ -9,25 +8,25 @@ class Solution
         for (int i = 0; i < s.Length; i++)
         {
             char ch = s[i];
-            char lowerch = ch.ToLower; // Error here
+            char lowerch = char.ToLower(ch); // Error here
             if (lowerch == 'a' || lowerch == 'e' || lowerch == 'i' || lowerch == 'o' || lowerch == 'u')
             {
-                if (i > 0 && i < s.Length && !char.IsWhiteSpace(s[i - 1]) && !char.IsWhiteSpace(s[i + 1]) &&
+                if (i > 0 && i < s.Length-1 && !char.IsWhiteSpace(s[i - 1]) && !char.IsWhiteSpace(s[i + 1]) &&
                     !(char.ToLower(s[i - 1]) == 'a' || char.ToLower(s[i - 1]) == 'e' || char.ToLower(s[i - 1]) == 'i' || 
                       char.ToLower(s[i - 1]) == 'o' || char.ToLower(s[i - 1]) == 'u') &&
                     !(char.ToLower(s[i + 1]) == 'a' || char.ToLower(s[i + 1]) == 'e' || char.ToLower(s[i + 1]) == 'i' || 
                       char.ToLower(s[i + 1]) == 'o' || char.ToLower(s[i + 1]) == 'u'))
                 {
-                    result += '5'; // Error here
+                    result[i]= '5'; 
                 }
                 else
                 {
-                    result += '3'; // Error here
+                    result[i]='3';
                 }
             }
             else
             {
-                result += ch; // Error here
+                result[i] = ch; 
             }
         }
         return new string(result);
@@ -40,3 +39,9 @@ class Solution
         Console.WriteLine(result);
     }
 }
+/*Sample Input
+hello
+Your Output
+h5ll3
+
+*/
