@@ -1,6 +1,64 @@
 using System;
 using System.Collections.Generic;
 
+using System;
+using System.Collections.Generic;
+
+class Solution
+{
+    static bool IsFibonacci(int num)
+    {
+        // Check if a number is in the Fibonacci sequence
+        int a = 0, b = 1;
+        if (num == a || num == b)
+            return true;
+
+        int c = a + b;
+        while (c <= num)
+        {
+            if (c == num)
+                return true;
+            a = b;
+            b = c;
+            c = a + b;
+        }
+        return false;
+    }
+
+    static int count(int X, int Y)
+    {
+        HashSet<int> fibonacciNumbers = new HashSet<int>();
+
+        for (int A = 0; A < X; A++)
+        {
+            for (int B = 0; B < Y; B++)
+            {
+                int result = (int)Math.Pow(A, B);
+                if (IsFibonacci(result))
+                {
+                    fibonacciNumbers.Add(result);
+                }
+            }
+        }
+
+        return fibonacciNumbers.Count;
+    }
+
+    static void Main(string[] args)
+    {
+        int X = Convert.ToInt32(Console.ReadLine());
+        int Y = Convert.ToInt32(Console.ReadLine());
+
+        int result = count(X, Y);
+        Console.Write(result);
+    }
+
+
+
+
+
+
+//alt 
 class Solution
 {
     static HashSet<int> OgF(int limit){
