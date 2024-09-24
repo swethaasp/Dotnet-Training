@@ -44,3 +44,50 @@ public class Solution
         Console.WriteLine("Left Rotation: " + string.Join(" ", resultLeft)); // Output: 3 5 7 9 1
     }
 }
+
+/*
+//Array Rotation
+
+using System;
+
+public class Solution 
+{
+    // Right Rotation by 1
+    static int[] rotateArrayRight(int[] arr, int n,int k) 
+    {
+        k=k%n;
+        int[] res=new int[n];
+        for(int i=0;i<n;i++){
+            res[(i+k)%n]=arr[i];
+        }
+        return res;
+    }
+
+    // Left Rotation by 1
+    static int[] rotateArrayLeft(int[] arr, int n,int k) 
+    {
+        k=k%n;
+        int[] res=new int[n];
+        for(int i=0;i<n;i++){
+           res[i]= arr[(i+k)%n];
+        }
+        return res;
+    }
+
+    static void Main(string[] args)
+    {
+        //int[] array1 = {1, 3, 5, 7, 9};  //// Output: 9 1 3 5 7
+        int[] array1={1,2,3,4,5};   // output:Right Rotation: 5 1 2 3 4
+        int k=8;
+
+        // Right Rotation
+        int[] resultRight = rotateArrayRight(array1, array1.Length,k);
+        Console.WriteLine("Right Rotation: " + string.Join(" ", resultRight)); 
+
+        // Left Rotation
+       int[] resultLeft = rotateArrayLeft(array1, array1.Length,k);
+        Console.WriteLine("Left Rotation: " + string.Join(" ", resultLeft)); // Output: 3 5 7 9 1
+    }
+}
+Right Rotation: 3 4 5 1 2
+Left Rotation: 4 5 1 2 3
