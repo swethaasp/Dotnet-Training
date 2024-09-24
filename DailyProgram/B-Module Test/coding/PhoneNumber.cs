@@ -5,6 +5,11 @@ class Solution
     // Function to extract the last 10 digits from the given string
     static string PhoneNumber(string S)
     {
+
+        string digit=new string(S.Where(char.IsDigit).ToArray());
+        return digit.Substring(digit.Length-10);
+
+        //alt approach
         string digits="";
         foreach(char c in S){
             if(char.IsDigit(c)){
@@ -14,9 +19,7 @@ class Solution
         }
         return digits.Substring(digits.Length-10);
 
-      /*string digit=new string(S.Where(char.IsDigit).ToArray());
-        return digit.Substring(digit.Length-10);
-      */
+      
     }
 
     static void Main(string[] args)
